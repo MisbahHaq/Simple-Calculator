@@ -62,11 +62,6 @@ body {
     cursor: pointer;
 }
 
-#card #remove {
-    background-color: #dadada;
-    color: #111;
-}
-
 #btn-container {
     display: flex;
     justify-content: center;
