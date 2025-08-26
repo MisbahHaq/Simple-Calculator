@@ -2,6 +2,7 @@
 #include <math.h>
 
 void print_menu();
+double division(double, double);
 
 int main()
 {
@@ -34,7 +35,7 @@ int main()
             result = first * second;
             break;
         case 4:
-            result = first / second;
+            result = division(first, second);
             break;
         case 5:
             result = (int)first % (int)second;
@@ -53,6 +54,18 @@ int main()
     return 0;
 }
 
+double division(double a, double b)
+{
+    if (b == 0)
+    {
+        fprintf(stderr, "Invalid Argument for Division");
+        return NAN;
+    }
+    else
+    {
+        return a / b;
+    }
+}
 void print_menu()
 {
     printf("\n Welcome to Simple Calculator\n");
