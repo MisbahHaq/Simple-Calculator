@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <math.h>
 
 void print_menu();
 
@@ -18,8 +19,35 @@ int main()
         printf("\nPlease enter the first number: ");
         scanf("%lf", &first);
 
-        printf("Now enter the second number");
+        printf("Now enter the second number: ");
         scanf("%lf", &second);
+
+        switch (choice)
+        {
+        case 1:
+            result = first + second;
+            break;
+        case 2:
+            result = first - second;
+            break;
+        case 3:
+            result = first * second;
+            break;
+        case 4:
+            result = first / second;
+            break;
+        case 5:
+            result = (int)first % (int)second;
+            break;
+        case 6:
+            result = pow(first, second);
+            break;
+
+        default:
+            break;
+        }
+
+        printf("\nResult of Operation is: %.2f", result);
     }
 
     return 0;
@@ -36,5 +64,5 @@ void print_menu()
     printf("\n5. Modulus");
     printf("\n6. Power");
     printf("\n7. Exit\n");
-    printf("\nNow, enter your choice: ");
+    printf("\nNow, enter your choice:\n");
 }
