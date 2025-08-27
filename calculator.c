@@ -3,6 +3,7 @@
 
 void print_menu();
 double division(double, double);
+int modulus(int, int);
 
 int main()
 {
@@ -38,7 +39,7 @@ int main()
             result = division(first, second);
             break;
         case 5:
-            result = (int)first % (int)second;
+            result = modulus(first, second);
             break;
         case 6:
             result = pow(first, second);
@@ -66,6 +67,20 @@ double division(double a, double b)
         return a / b;
     }
 }
+
+int modulus(int a, int b)
+{
+    if (b == 0)
+    {
+        fprintf(stderr, "Invalid Argument for Modulus");
+        return NAN;
+    }
+    else
+    {
+        return a % b;
+    }
+}
+
 void print_menu()
 {
     printf("\n Welcome to Simple Calculator\n");
