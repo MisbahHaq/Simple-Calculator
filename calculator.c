@@ -3,7 +3,7 @@
 
 void print_menu();
 double division(double, double);
-int modulus(int, int);
+double modulus(int, int);
 
 int main()
 {
@@ -19,7 +19,21 @@ int main()
         }
         if (choice < 1 || choice > 7)
         {
-            fprintf(stderr, "Invalid Menu Choice");
+            fprintf(stderr, "Invalid Menu Choice\n");
+            continue;
+        }
+
+        if (choice == 5)
+        {
+            int a, b;
+            printf("\nPlease enter the first integer: ");
+            scanf("%d", &a);
+            printf("Now enter the second integer: ");
+            scanf("%d", &b);
+
+            int modResult = modulus(a, b);
+            if (b != 0)
+                printf("\nResult of Operation is: %d\n", modResult);
             continue;
         }
 
@@ -43,16 +57,14 @@ int main()
         case 4:
             result = division(first, second);
             break;
-        case 5:
-            result = modulus(first, second);
-            break;
         case 6:
             result = pow(first, second);
             break;
         }
-        if (result != NAN)
+
+        if (!isnan(result))
         {
-            printf("\nResult of Operation is: %.2f", result);
+            printf("\nResult of Operation is: %.2f\n", result);
         }
     };
 
@@ -63,7 +75,7 @@ double division(double a, double b)
 {
     if (b == 0)
     {
-        fprintf(stderr, "Invalid Argument for Division");
+        fprintf(stderr, "Invalid Argument for Division\n");
         return NAN;
     }
     else
@@ -72,12 +84,12 @@ double division(double a, double b)
     }
 }
 
-int modulus(int a, int b)
+double modulus(int a, int b)
 {
     if (b == 0)
     {
-        fprintf(stderr, "Invalid Argument for Modulus");
-        return NAN;
+        fprintf(stderr, "Invalid Argument for Modulus\n");
+        return 0;
     }
     else
     {
@@ -87,7 +99,8 @@ int modulus(int a, int b)
 
 void print_menu()
 {
-    printf("\n Welcome to Simple Calculator\n");
+    printf("\n\n-----------------------------------------\n");
+    printf("\nWelcome to Simple Calculator\n");
     printf("\nChoose one of the following options:\n");
     printf("\n1. Add");
     printf("\n2. Subtract");
@@ -96,5 +109,5 @@ void print_menu()
     printf("\n5. Modulus");
     printf("\n6. Power");
     printf("\n7. Exit\n");
-    printf("\nNow, enter your choice:\n");
+    printf("\nNow, enter your choice: ");
 }
