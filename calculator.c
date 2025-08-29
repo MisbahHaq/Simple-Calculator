@@ -17,6 +17,11 @@ int main()
         {
             break;
         }
+        if (choice < 1 || choice > 7)
+        {
+            fprintf(stderr, "Invalid Menu Choice");
+            continue;
+        }
 
         printf("\nPlease enter the first number: ");
         scanf("%lf", &first);
@@ -44,13 +49,12 @@ int main()
         case 6:
             result = pow(first, second);
             break;
-
-        default:
-            break;
         }
-
-        printf("\nResult of Operation is: %.2f", result);
-    }
+        if (result != NAN)
+        {
+            printf("\nResult of Operation is: %.2f", result);
+        }
+    };
 
     return 0;
 }
